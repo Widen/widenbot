@@ -11,3 +11,12 @@ $ vim config.js
 To run:
 
 `widenbot -c config.js`
+
+# Features
+
+## Planned
+
+- Plugins
+    - "hot-loading" plugins at runtime
+- Web app for control
+
