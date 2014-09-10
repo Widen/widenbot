@@ -6,9 +6,12 @@ var
 
 var
     _ = require('lodash'),
-    minimist = require('minimist');
+    minimist = require('minimist')
+    ;
 
-var Widenbot = require('../index').Bot;
+var Widenbot = require('../index').Bot
+    logging = require('../lib/logging')
+    ;
 
 function help()
 {
@@ -65,7 +68,17 @@ function main()
         process.exit(1);
     }
 
-    var widenbot = new Widenbot(options)
+    var configPath = path.resolve(process.cwd(), argv.config),
+        config = require(configPath);
+
+    config.log = logging(config);
+    config.port = process.env.PORT || argv.port || 8000;
+
+    var widenbot = new Widenbot(config)
+    widenbot.listen(function()
+    {
+        console.log('widenbot is listening!');
+    });
 
 }
 
