@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
 var
+    path = require('path')
+    ;
+
+var
     _ = require('lodash'),
     minimist = require('minimist');
 
@@ -27,14 +31,11 @@ function parse_args(args)
             strings: [
                 'configuration',
                 'help',
-                'hostname',
                 'port'
             ],
             boolean: ['help'],
             default: {
-                'help': true,
-                'hostname': '127.0.0.1',
-                'port': 8080
+                'port': 8000
             },
 
             alias: {
@@ -43,10 +44,6 @@ function parse_args(args)
                     'c',
                     'conf',
                     'config'
-                ],
-                '': [
-                    'h',
-                    'host'
                 ],
                 'port': ['p']
             }
@@ -60,10 +57,9 @@ function parse_args(args)
 function main()
 {
     var args = process.argv ? process.argv.slice(2) : null,
-        argv = parse_args(args),
-        options = {};
+        argv = parse_args(args);
 
-    if (argv.help)
+    if (argv.help === true)
     {
         help();
         process.exit(1);
