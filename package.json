@@ -14,5 +14,8 @@
     "lodash": "^2.4.1",
     "minimist": "^1.1.0",
     "restify": "^2.8.2"
+  },
+  "devDependencies": {
+    "tape": "^2.14.0"
   }
 }
