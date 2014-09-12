@@ -8,6 +8,10 @@
     "bot"
   ],
   "homepage": "https://github.com/Widen/widenbot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Widen/widenbot.git"
+  },
   "bugs": {
     "url": "https://github.com/Widen/widenbot/issues"
   },
@@ -22,6 +26,7 @@
     "widenbot": "bin/cli.js"
   },
   "scripts": {
+    "prepublish": "npm test",
     "watch": "NODE_ENV=dev nodemon -w index.js -w lib -w plugins bin/cli.js -c config -p 8000",
     "lint": "jshint index.js lib/*.js plugins/*.js test/*.js bin/*.js",
     "unit-test": "tape ./test/*-test.js",
