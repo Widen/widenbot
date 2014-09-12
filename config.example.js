@@ -5,7 +5,7 @@ module.exports = {
     env: 'dev',
     port: 8000,
     token: '<%= SLACK_TOKEN %>',
-    hook: '<%= SLACK_URL %>',
+    url: '<%= SLACK_URL %>',
     brain: {
         dbpath: './db'
     },
@@ -15,7 +15,6 @@ module.exports = {
     },
     plugins: {
         'echo': {},
-        'status': {}
         //'foo': {}
     }
 };
