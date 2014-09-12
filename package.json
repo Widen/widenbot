@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "tape ./test/*-test.js"
   },
   "author": "Mark Feltner",
   "license": "MIT",
