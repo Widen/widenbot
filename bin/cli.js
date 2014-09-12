@@ -13,6 +13,8 @@ var Widenbot = require('../index').Bot
     logging = require('../lib/logging')
     ;
 
+var DEV_MODE = false;
+
 function help()
 {
     console.log("usage: widenbot [OPTIONS]\n" +
@@ -36,7 +38,7 @@ function parse_args(args)
                 'help',
                 'port'
             ],
-            boolean: ['help'],
+            boolean: ['help', 'debug'],
             default: {
                 'port': 8000
             },
@@ -72,7 +74,7 @@ function main()
         config = require(configPath);
 
     config.log = logging(config);
-    config.port = process.env.PORT || argv.port || 8000;
+    config.port = process.env.PORT || config.port || argv.port || 8000;
 
     var widenbot = new Widenbot(config)
     widenbot.listen(function()
