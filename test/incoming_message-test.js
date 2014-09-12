@@ -68,7 +68,7 @@ test('$IncomingMessage', function(t)
         var message = _.extend(BASE_MESSAGE, { text: '!' + text });
         var incomingMessage = new IncomingMessage(message);
 
-        st.equal('bar baz', incomingMessage.getArgs(), "should return the text after the first space'!'");
+        st.equal(' bar baz', incomingMessage.getArgs(), "should return the text after the first space'!'");
 
     });
 
