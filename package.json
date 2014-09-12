@@ -31,6 +31,7 @@
     "watch": "NODE_ENV=dev nodemon -w index.js -w lib -w plugins bin/cli.js -c config -p 8000",
     "lint": "jshint index.js lib/*.js plugins/*.js test/*.js bin/*.js",
     "unit-test": "tape ./test/*-test.js",
+    "coverage": "covert ./test/*-test.js",
     "test": "npm run lint && npm run unit-test"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "conventional-changelog": "0.0.11",
+    "covert": "^1.0.0",
     "jshint": "^2.5.5",
     "localtunnel": "^1.4.0",
     "tape": "^2.14.0"
