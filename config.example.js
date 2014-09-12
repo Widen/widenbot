@@ -4,8 +4,8 @@ module.exports = {
 
     env: 'dev',
     port: 8000,
-    token: '{SLACK_TOKEN}',
-    hook: '{SLACK_URL}',
+    token: '<%= SLACK_TOKEN %>',
+    hook: '<%= SLACK_URL %>',
     brain: {
         dbpath: './db'
     },
