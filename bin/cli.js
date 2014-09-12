@@ -9,7 +9,7 @@ var
     minimist = require('minimist')
     ;
 
-var Widenbot = require('../index').Bot
+var Widenbot = require('../index').Bot,
     logging = require('../lib/logging')
     ;
 

@@ -1,5 +1,5 @@
 var
-    Promise = require('promise'),
+    promise = require('promise'),
     LastFmAPI = require('lastfm').LastFmNode
     ;
 
@@ -58,7 +58,7 @@ var LastFm = module.exports = {
                     username = subArgs[0];
                 }
 
-                return new Promise(function(resolve, reject)
+                return new promise(function(resolve, reject)
                 {
                     lastFm.request('user.getRecentTracks', {
                         'user': username,

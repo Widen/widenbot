@@ -5,26 +5,6 @@ var
 
 var IncomingMessage = require('../lib/incoming_message');
 
-
-function MockMessageFactory(message)
-{
-    var defaults = {
-        token: '1234',
-        team_id: '1234',
-        team_domain: 'footeam',
-        channel_id: '1',
-        channel_name: 'foochannel',
-        timestamp: '1410499918',
-        user_id: '1',
-        user_name: 'fooUser',
-        text: '',
-        trigger_word: incomingMessageObj.trigger_word
-    };
-
-    return _.extends(defaults, message);
-
-}
-
 var TRIGGER = '!';
 var BASE_MESSAGE = {
         token: '1234',
@@ -90,13 +70,13 @@ test('$IncomingMessage', function(t)
 
         st.equal(incomingMessage.getChannel(), '#foochannel', "should return the channel with a hash appended.");
 
-        var message = _.extend(BASE_MESSAGE, { channel_name: '#foochan'});
-        var incomingMessage = new IncomingMessage(message);
+        message = _.extend(BASE_MESSAGE, { channel_name: '#foochan'});
+        incomingMessage = new IncomingMessage(message);
 
         st.equal(incomingMessage.getChannel(), '#foochan', "should return the channel with a hash '#' already on it.");
 
-        var message = _.extend(BASE_MESSAGE, { channel_name: '@barUser'});
-        var incomingMessage = new IncomingMessage(message);
+        message = _.extend(BASE_MESSAGE, { channel_name: '@barUser'});
+        incomingMessage = new IncomingMessage(message);
 
         st.equal(incomingMessage.getChannel(), '@barUser', "should return a user with an at '@' on it.");
     });
