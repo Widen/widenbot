@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape ./test/*-test.js"
+    "watch": "NODE_ENV=dev nodemon -w index.js -w lib -w plugins bin/cli.js -c config -p 8000",
+    "lint": "jshint index.js lib/*.js plugins/*.js test/*.js bin/*.js",
+    "unit-test": "tape ./test/*-test.js",
+    "test": "npm run lint && npm run unit-test"
   },
   "author": "Mark Feltner",
   "license": "MIT",
