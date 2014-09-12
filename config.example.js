@@ -1,5 +1,6 @@
 module.exports = {
     name: 'widenbot',
+    icon: ':ghost:',
 
     env: 'dev',
     port: 8000,
