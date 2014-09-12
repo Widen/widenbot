@@ -14,7 +14,7 @@
     "lodash": "^2.4.1",
     "minimist": "^1.1.0",
     "promise": "^6.0.0",
-    "restify": "^2.8.2",
+    "restify": "^2.8.2"
   },
   "devDependencies": {
     "localtunnel": "^1.4.0",
