@@ -15,6 +15,15 @@ module.exports = {
     },
     plugins: {
         'echo': {},
+        'nowplaying': {
+            'api_key': process.env.LASTFM_API_KEY,
+            'secret': process.env.LASTFM_SECRET
+        },
+        'last.fm': {
+            'api_key': process.env.LASTFM_API_KEY,
+            'secret': process.env.LASTFM_SECRET
+        }
+
         //'foo': {}
     }
 };

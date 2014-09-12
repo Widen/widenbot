@@ -42,11 +42,13 @@ var LastFm = module.exports = {
             secret: ctx.plugin.options.secret
         });
 
+        var lastFmUsername;
+
         if (subCommand)
         {
             if (subCommand === 'register' && subArgs && subArgs[0])
             {
-                var lastFmUsername = subArgs[0];
+                lastFmUsername = subArgs[0];
                 // register lastFmUsername in database
                 return 'in progress';
             }
@@ -55,13 +57,13 @@ var LastFm = module.exports = {
                 var username = ctx.incoming_message.user_name;
                 if (subArgs && subArgs[0])
                 {
-                    username = subArgs[0];
+                    lastFmUsername = subArgs[0];
                 }
 
                 return new promise(function(resolve, reject)
                 {
                     lastFm.request('user.getRecentTracks', {
-                        'user': username,
+                        'user': lastFmUsername,
                         'limit': 1,
                         handlers: {
                             success: function(data)
