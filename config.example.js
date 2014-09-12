@@ -12,5 +12,10 @@ module.exports = {
     logging: {
         console: true,
         path: './log'
-    }
+    },
+    plugins: [
+        'echo',
+        'status'
+        //'foo': {}
+    ]
 };
