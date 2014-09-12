@@ -16,7 +16,7 @@ var BASE_MESSAGE = {
         user_id: '1',
         user_name: 'fooUser',
         trigger_word: TRIGGER
-}
+};
 
 test('$IncomingMessage', function(t)
 {
@@ -33,7 +33,7 @@ test('$IncomingMessage', function(t)
     t.test('#getText()', function(st){
         st.plan(1);
 
-        var text = 'foo bar baz'
+        var text = 'foo bar baz';
         var message = _.extend(BASE_MESSAGE, { text: '!' + text });
         var incomingMessage = new IncomingMessage(message);
 
@@ -44,7 +44,7 @@ test('$IncomingMessage', function(t)
     t.test('#getArgs()', function(st){
         st.plan(1);
 
-        var text = 'foo bar baz'
+        var text = 'foo bar baz';
         var message = _.extend(BASE_MESSAGE, { text: '!' + text });
         var incomingMessage = new IncomingMessage(message);
 

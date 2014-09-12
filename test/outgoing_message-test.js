@@ -37,7 +37,7 @@ test('$OutgoingMessage', function(t)
     t.test('#setResponse()', function(st){
         st.plan(1);
 
-        var text = 'foo bar baz'
+        var text = 'foo bar baz';
         var outgoingMessage = new OutgoingMessage('foo', 'bar');
         outgoingMessage.setResponse(text);
 

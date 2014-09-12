@@ -25,7 +25,7 @@ function help()
 "\t--c=CONFIG_FILE\t Path to the configuration file (required).\n" +
 "\t--host=HOST\t Hostname to use (default: 127.0.0.1)\n" +
 "\t--port=PORT\t Port number to assign (default: 8080)\n" +
-"\t\n")
+"\t\n");
 }
 
 function parse_args(args)
@@ -76,7 +76,7 @@ function main()
     config.log = logging(config);
     config.port = process.env.PORT || config.port || argv.port || 8000;
 
-    var widenbot = new Widenbot(config)
+    var widenbot = new Widenbot(config);
     widenbot.listen(function()
     {
         console.log('widenbot is listening!');
