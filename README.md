@@ -1,23 +1,22 @@
 widenbot
 ----
 
-To install:
+_pre-alpha_
+
+Quickstart:
 
 ```
-$ npm install -g https://github.com/widen/widenbot`
-$ cp config.example.js config.js
-$ vim config.js
+% npm install -g https://github.com/widen/widenbot`
+% widenbot -c config.js
 ```
 
-To run:
+Devstart:
 
-`widenbot -c config.js`
-
-# Features
-
-## Planned
-
-- Plugins
-    - "hot-loading" plugins at runtime
-- Web app for control
-
+```
+% git clone git@github.com:Widen/widenbot
+% cd widenbot
+% npm i
+% cp config.example.js config.js
+% vim config.js
+% node bin/cli.js -c config.js
+```
