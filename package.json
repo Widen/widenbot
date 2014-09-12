@@ -36,6 +36,7 @@
     "restify": "^2.8.2"
   },
   "devDependencies": {
+    "jshint": "^2.5.5",
     "localtunnel": "^1.4.0",
     "tape": "^2.14.0"
   },
