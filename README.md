@@ -1,6 +1,9 @@
 widenbot
 ----
 
+[![Build
+Status](https://travis-ci.org/Widen/widenbot.svg?branch=master)](https://travis-ci.org/Widen/widenbot)
+
 _pre-alpha_
 
 Quickstart:
