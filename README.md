@@ -4,7 +4,8 @@ widenbot
 To install:
 
 ```
-$ npm install -g widenbot`
+$ npm install -g https://github.com/widen/widenbot`
+$ cp config.example.js config.js
 $ vim config.js
 ```
 
