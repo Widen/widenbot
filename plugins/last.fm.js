@@ -84,7 +84,6 @@ var LastFm = module.exports = {
                                     ;
 
                                 var post = '[ *' + name + '* ] _by_ [ *' + artist + '* ] _on_ [ *' + album + '* ] - ' + imgUrl;
-                                console.log(post);
                                 resolve(post);
 
 

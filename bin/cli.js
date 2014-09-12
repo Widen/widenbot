@@ -9,8 +9,7 @@ var
     minimist = require('minimist')
     ;
 
-var Widenbot = require('../index').Bot,
-    logging = require('../lib/logging')
+var Widenbot = require('../index').Bot
     ;
 
 var DEV_MODE = false;
@@ -73,14 +72,10 @@ function main()
     var configPath = path.resolve(process.cwd(), argv.config),
         config = require(configPath);
 
-    config.log = logging(config);
     config.port = process.env.PORT || config.port || argv.port || 8000;
 
     var widenbot = new Widenbot(config);
-    widenbot.listen(function()
-    {
-        console.log('widenbot is listening!');
-    });
+    widenbot.listen();
 
 }
 
