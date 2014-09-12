@@ -27,6 +27,7 @@
   },
   "scripts": {
     "prepublish": "npm test",
+    "changelog": "node ./scripts/changelog.js",
     "watch": "NODE_ENV=dev nodemon -w index.js -w lib -w plugins bin/cli.js -c config -p 8000",
     "lint": "jshint index.js lib/*.js plugins/*.js test/*.js bin/*.js",
     "unit-test": "tape ./test/*-test.js",
@@ -41,6 +42,7 @@
     "restify": "^2.8.2"
   },
   "devDependencies": {
+    "conventional-changelog": "0.0.11",
     "jshint": "^2.5.5",
     "localtunnel": "^1.4.0",
     "tape": "^2.14.0"
