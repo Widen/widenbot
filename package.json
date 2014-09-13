@@ -47,6 +47,7 @@
     "covert": "^1.0.0",
     "jshint": "^2.5.5",
     "localtunnel": "^1.4.0",
+    "request": "^2.42.0",
     "tape": "^2.14.0"
   },
   "optionalDependencies": {
