@@ -5,7 +5,7 @@ var
     _ = require('lodash')
     ;
 
-var PORT = 8000,
+var PORT = 1337,
     URL = 'http://127.0.0.1:'+PORT,
     HOOK_URL = 'http://127.0.0.1:'+(PORT+1),
     TRIGGER = '!',
@@ -19,7 +19,8 @@ var MockOptions = function(opts)
         port: PORT,
         token: 'fooToken',
         url: HOOK_URL,
-        logging: { console: false, path: './log/test.log'}
+        logging: { console: false, path: './log'},
+        brain: { dbpath: './testdb' }
     };
 
     return _.extend(defaults, opts);
@@ -62,41 +63,41 @@ var
 test('$Bot', function(t){
 
     t.test('#constructor', function(st){
-        st.plan(2);
+        //st.plan(2);
 
         st.throws(function(){
             new Bot();
-        });
+        }, undefined, "should throw when no parameters");
 
         st.doesNotThrow(function(){
             var bot, options;
 
             options = MockOptions();
             bot = new Bot(options);
-        });
+            bot.close(function(){ st.end(); });
+        }, undefined, "should construct with correct parameters");
 
     });
 
-    t.test('#listen()', function(st){
-        st.plan(3);
+    t.test('#close(),#listen()', function(st){
+        //st.plan(2);
 
-        st.doesNotThrow(function(){
-            var bot, options;
+        var bot, options;
 
-            options = MockOptions();
-            bot = new Bot(options);
-            bot.listen(function(){
-                st.ok(true, "Bot listens without error");
-            });
+        options = MockOptions();
+        bot = new Bot(options);
+        bot.listen(function(){
+            st.ok(true, "listens without error");
             bot.close(function(){
-                st.ok(true, "Bot closes without error");
+                st.ok(true, "closes without error");
+                st.end();
             });
         });
 
     });
 
     t.test('#onPing()', function(st){
-        st.plan(2);
+        //st.plan(2);
         var bot, options;
 
         options = MockOptions();
@@ -107,17 +108,16 @@ test('$Bot', function(t){
                 method: 'GET',
                 uri: URL + '/ping',
             }, function(err, res, body){
-                console.log(URL+'/ping');
                 st.equal(res.statusCode, 200);
                 st.equal(body, '"pong"');
-                bot.close();
+                bot.close(function(){ st.end(); });
             });
         });
 
     });
 
     t.test('#onIncomingMessage(),#handleMessage(),#sendMessage()', function(st){
-        st.plan(2);
+        //st.plan(3);
         var bot, options, body;
 
         options = MockOptions({ plugins: { 'echo': {} }});
@@ -135,8 +135,6 @@ test('$Bot', function(t){
             });
 
             server.on('request', function(req, res){
-                bot.close(function(){ console.log('bot closed'); });
-                server.close(function(){ console.log('server closed'); });
                 var write = concat(function(data){
                     st.deepEqual({
                         'link_names': 1,
@@ -149,6 +147,9 @@ test('$Bot', function(t){
                 req.pipe(write);
                 res.statusCode = 200;
                 res.end();
+                bot.close(function(){
+                    server.close(function(){ st.end(); });
+                });
             });
 
             server.listen(PORT+1, function(){
