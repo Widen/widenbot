@@ -3,8 +3,6 @@ widenbot
 
 > _A Slack bot and plugin framework for Widen_
 
-This software is in [initial development stage](semver.org). Anything may change at any time. The public API (config, plugins) should not be considered stable.
-
 [![Build
 Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat)](https://travis-ci.org/Widen/widenbot) | [![Version](http://img.shields.io/npm/v/widenbot.svg?style=flat)](npm.org/widenbot) | [![Waffle.io](http://img.shields.io/badge/waffle-board-yellow.svg?style=flat)](https://waffle.io/Widen/widenbot)
 
@@ -35,15 +33,12 @@ Devstart:
 
 **Required**: `token` and `url`.
 
-
 Basic config is in `config.example.js`.
 
 
 # Plugins
 
 Defined in `./plugins` or able to be `require`'d.
-
-**Specification:**
 
 **Required:** `pattern` and `respond`.
 
