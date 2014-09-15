@@ -26,7 +26,6 @@
     "widenbot": "bin/cli.js"
   },
   "scripts": {
-    "prepublish": "npm test",
     "changelog": "node ./scripts/changelog.js",
     "watch": "NODE_ENV=dev nodemon -w index.js -w lib -w plugins bin/cli.js -c config -p 8000",
     "lint": "jshint index.js lib/*.js plugins/*.js test/*.js bin/*.js",
