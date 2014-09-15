@@ -77,12 +77,18 @@ function register(brain, slack_username, lastfm_username)
         assert(lastfm_username && _.isString(lastfm_username), "Must provide a LastFM username");
 
         register_lastfm_username(brain, slack_username, lastfm_username).then(function(result){
-            resolve("username ''" + result.lastfm_username +
-                    "' is now registered for '" + result.slack_username + "'");
+            if (result)
+            {
+                resolve("username ''" + result.lastfm_username +
+                        "' is now registered for '@" + result.slack_username + "'");
+            }
+            else
+            {
+                resolve("username ''" + lastfm_username +
+                        "' is already registered to '@" + slack_username + "'");
+            }
         }, function(err){
-            if (err) return reject(err);
-            resolve("username ''" + lastfm_username +
-                    "' is already registered to '" + slack_username + "'");
+            reject(err);
         });
     });
 
