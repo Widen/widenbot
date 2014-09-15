@@ -15,6 +15,7 @@ module.exports = {
     },
     plugins: {
         'echo': {},
+        'coolface': {},
         'nowplaying': {
             'api_key': process.env.LASTFM_API_KEY,
             'secret': process.env.LASTFM_SECRET
