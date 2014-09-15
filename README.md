@@ -21,7 +21,7 @@ Quickstart:
 Devstart:
 
 ```
-% git clone git@github.com:Widen/widenbot
+% git clone git@github.com:Widen/widenbot.git
 % cd widenbot
 % npm i
 % cp config.example.js config.js
