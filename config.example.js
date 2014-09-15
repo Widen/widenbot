@@ -15,6 +15,9 @@ module.exports = {
     },
     plugins: {
         'echo': {},
+        'gif': {
+            GIPHY_API_KEY: process.env.GIPHY_API_KEY
+        },
         'flipit': {},
         'coolface': {},
         'nowplaying': {
