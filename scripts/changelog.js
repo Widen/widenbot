@@ -1,15 +1,18 @@
 var
-    changelog = require('conventional-changelog');
+    fs = require('fs'),
+    changelog = require('conventional-changelog')
+    ;
 
 var
     packageJson = require('../package.json');
 
 changelog({
-    file: '../CHANGELOG.md',
     repository: packageJson.repository,
     version: packageJson.version
 }, function (e, log){
+    if (e) throw new Error(e);
 
+    fs.writeFileSync('CHANGELOG.md', log);
     console.log(log);
 
 });
