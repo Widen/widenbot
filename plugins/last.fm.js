@@ -131,9 +131,11 @@ function LastFm_getRecentTrack(lastFm, lastfm_username){
 
 function format_post(track)
 {
-    var postTemplate = '[ * <%= name %> * ] _by_ [ * <%= artist %> * ] _on_ [ * <%= album %>* ] - <%= imgUrl %>';
+    var
+        postTemplate = '[ * <%= name %> * ] _by_ [ * <%= artist %> * ] _on_ [ * <%= album %>* ] - <%= imgUrl %>',
+        post = _.template(postTemplate, track);
 
-    return _.template(postTemplate, track);
+    return post;
 }
 
 
