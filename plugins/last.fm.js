@@ -15,7 +15,6 @@ function register_lastfm_username(brain, slack_username, lastfm_username)
         assert(slack_username && _.isString(slack_username), "Must provide a Slack username");
         assert(lastfm_username && _.isString(lastfm_username), "Must provide a LastFM username");
 
-
         get_lastfm_username(brain, slack_username).then(function(result){
             resolve(null);
         }, function(no_result) {
@@ -147,7 +146,6 @@ function now_playing(brain, lastFm, slack_username, lastfm_username)
 
         if (lastfm_username)
         {
-
             LastFm_getRecentTrack(lastFm, lastfm_username).then(function(track){
                 var post = format_post(track);
                 resolve(post);
@@ -185,7 +183,7 @@ var LastFm = module.exports = {
 
     "pattern": /^lastfm$/,
     "respond": function(ctx) {
-        var argv = ctx.args.split(' ').slice(1);
+        var argv = ctx.args.split(' ');
 
         var
             subCommand = argv[0],
@@ -222,7 +220,7 @@ var LastFm = module.exports = {
             }
         }
 
-        return "in progress";
+        return "";
     }
 };
 

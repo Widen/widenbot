@@ -7,6 +7,6 @@ var Echo = module.exports = {
 
     "pattern": /^echo$/,
     "respond": function(ctx) {
-        return ctx.args.slice(1);
+        return ctx.args;
     }
 };

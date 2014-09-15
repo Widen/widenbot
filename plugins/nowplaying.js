@@ -11,9 +11,9 @@ var NowPlaying = module.exports = {
             "register <lastFmUsername>\t Register your slack username to your lastfm username.\n" +
             "nowplaying|np \t Post your now playing.\n",
 
-    "pattern": /^np/,
+    "pattern": /^np$/,
     "respond": function(ctx) {
-        ctx.args = ' np' + ctx.args;
+        ctx.args = 'np ';
         return LastFm.respond(ctx);
     }
 };
