@@ -52,7 +52,7 @@ within the configuration. An example is provided in [config.example.js](config.e
 
 ## <a name="config-usage">Usage</a>
 
-The configuration is loaded and intepreted at runtime. A configuration can be
+The configuration is loaded and interpreted at runtime. A configuration can be
 provided via the command-line wrapper.
 
 `% widenbot --config path/to/config.js`
@@ -60,6 +60,8 @@ provided via the command-line wrapper.
 Currently recognized fields are:
 
 - `name`: the bot's name
+- `repl`: whether to launch an interactive repl with all plugins loaded
+  (default: false)
 - `token`: Slack's outgoing webook token
 - `url`: Slack's incoming webhook url
 - `brain`: Options for the brain
