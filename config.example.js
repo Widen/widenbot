@@ -3,21 +3,28 @@ module.exports = {
     icon: ':ghost:',
 
     env: 'dev',
+    repl: false,
+
     port: 8000,
+
     token: process.env.SLACK_TOKEN,
     url: process.env.SLACK_URL,
+
     brain: {
         dbpath: './db'
     },
+
     logging: {
         console: true,
         path: './log'
     },
+
     plugins: {
         'echo': {},
         'gif': {
             GIPHY_API_KEY: process.env.GIPHY_API_KEY
         },
+        'coolface': {},
         'flipit': {},
         'coolface': {},
         'nowplaying': {
