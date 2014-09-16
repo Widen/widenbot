@@ -1,4 +1,4 @@
-#Contributing to Widenot
+#Contributing to widenbot
 
 [_Shamelessly stolen from Angular.JS_](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines)
 
@@ -159,7 +159,7 @@ from the main (upstream) repository:
 To ensure consistency throughout the source code, keep these rules in mind as you are working:
 
 * All features or bug fixes **must be tested** by one or more [specs][unit-testing].
-* All public API methods **must be documented** 
+* All public API methods **must be documented**
 
 ## <a name="commit-message-format"></a> Git Commit Guidelines
 
