@@ -42,6 +42,7 @@
     "minimist": "^1.1.0",
     "promise": "^6.0.0",
     "restify": "^2.8.2",
+    "restify-namespace": "^0.1.0",
     "sublevel": "^2.4.0"
   },
   "devDependencies": {
