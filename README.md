@@ -18,6 +18,9 @@ Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat
 - [Plugins](#plugins)
     - [Format](#plugins-format)
     - [Example](#plugins-example)
+- [Webhooks](#webhooks)
+    - [Format](#webhooks-format)
+    - [Example](#webhooks-example)
 - [Development](#development)
     - [Creating Environment](#development-env)
     - [Contributing Guidelines](#development-contributing)
@@ -156,7 +159,7 @@ If a match is found, then this plugin will execute on that command.
 
 **`respond`**:
 
-this is the main response handler function for the plugin. It
+This is the main response handler function for the plugin. It
 receives a `context` (which is an object with the command, username,
 arguments, plugin options, and a reference to the brain).
 
@@ -188,6 +191,39 @@ var Echo = module.exports = {
     }
 };
 ```
+
+# <a name="plugins">Plugins</a>
+
+Much like plugins, webhooks are POJOs defined in the configuration.
+
+Rather than match a regex like plugins, webhooks are matched via their name
+and a url namespace. All webhook requests should follow the format:
+`http://path-to-bot/webhooks/:webhook_name` where webhook_name is the name
+of the hook defined in `config.js`, and all webhook requests should be POSTs.
+
+**`respond`**:
+
+Responds to the webhook. Should follow the signature:
+
+`function (context, req, res, next){}`
+
+As of right now, **must return a promise**. The `resolve()` success value
+is hash containing:
+
+```javascript
+{
+   to: '', // <required> which room '#' or user '@' this message is going to>
+   response: '', // <required> response text, or hash response with
+   attachments
+   from: '', // <optional> who is sending the message. defaults to the botname
+   in the config
+}
+```
+
+## <a name="plugins-format">Format</a>
+
+## <a name="plugins-example">Example</a>
+
 
 # <a name="development">Development</a>
 
