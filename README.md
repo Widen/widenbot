@@ -60,6 +60,7 @@ provided via the command-line wrapper.
 Currently recognized fields are:
 
 - `name`: the bot's name
+- `icon`: the bot's icon. Can be an emoji (":ghost:") or a URL.
 - `repl`: whether to launch an interactive repl with all plugins loaded
   (default: false)
 - `token`: Slack's outgoing webook token
