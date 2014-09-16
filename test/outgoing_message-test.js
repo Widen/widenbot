@@ -35,16 +35,30 @@ test('$OutgoingMessage', function(t)
     });
 
     t.test('#setResponse()', function(st){
-        st.plan(1);
+        st.plan(4);
 
         var text = 'foo bar baz';
         var outgoingMessage = new OutgoingMessage('foo', 'bar');
         outgoingMessage.setResponse(text);
 
-        st.equal(text, outgoingMessage.message.text, "should set the the response text");
+        st.equal(text, outgoingMessage.message.text, "should set the `text` property of the response to the string");
+
+        text = 'foo bar baz';
+        outgoingMessage = new OutgoingMessage('foo', 'bar');
+        outgoingMessage.setResponse({ text: text });
+
+        st.equal(text, outgoingMessage.message.text, "should set the `text` property of the response to the string");
+
+        text = 'foo bar baz';
+        outgoingMessage = new OutgoingMessage('foo', 'bar');
+        outgoingMessage.setResponse({
+            text: text,
+            attachments: ['foo']
+        });
+
+        st.equal(text, outgoingMessage.message.text, "should set the `text` property of the response to the string");
+        st.equal(1, outgoingMessage.message.attachments.length, "should set the `attachments` property of the response to the attachments");
 
     });
 
 });
-
-
