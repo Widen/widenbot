@@ -149,14 +149,22 @@ configuration.
 A plugin must export a plain ol' Javascript object with a few required
 properties:
 
-- `pattern`: this is the regex pattern that incoming commands will be matched
-  against. If a match is found, then this plugin will execute on that command.
-- `respond`: this is the main response handler function for the plugin. IT
-  receives a `context` (which is an object with the command, username,
-  arguments, plugin options, and a reference to the brain). This function
-  should return a value or a promise. If the value is empty string, then
-  nothing is sent back. If promise is rejected, then nothing is sent back.
-  Else, resolve value is sent back, or the returned value is sent back.
+**`pattern`**:
+
+this is the regex pattern that incoming commands will be matched against.
+If a match is found, then this plugin will execute on that command.
+
+**`respond`**:
+
+this is the main response handler function for the plugin. It
+receives a `context` (which is an object with the command, username,
+arguments, plugin options, and a reference to the brain).
+
+This function should return a value or a promise. If the value is empty string, then
+nothing is sent back. If promise is rejected, then nothing is sent back.
+Else, resolve value is sent back, or the returned value is sent back.
+
+The response can also add attachments to the `ctx.outgoing_message` as outlined in the Slack API.
 
 ## <a name="plugins-example">Example</a>
 
