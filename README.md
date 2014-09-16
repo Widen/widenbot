@@ -9,6 +9,7 @@ Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat
 ----
 
 - [Quickstart](#quickstart)
+- [Features](#features)
 - [Configuration](#config)
     - [Usage](#config-usage)
     - [Format](#config-format)
@@ -46,6 +47,14 @@ Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat
 It is recommended to use environment variables for secret data such as API
 keys and secrets.
 
+# <a name="features">Features</a>
+
+- Plugin framework: easily create new plugins to do anything in response to
+  Slack commands!
+- Webhook framework: send messages to users or channels when another service
+  alerts the bot.
+- Logging: Extensible logging framework. Can send data to loggly, or anywhere
+  really.
 
 # <a name="config">Config</a>
 
