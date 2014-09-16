@@ -164,4 +164,41 @@ test('$Bot', function(t){
         });
     });
 
+    t.test('#handleWebhook()', function(st){
+        //st.plan(3);
+        var bot, options, body;
+
+        options = MockOptions({ webhooks: { 'echo': {} }});
+        bot = new Bot(options);
+
+        bot.listen(function(){
+
+            var server = http.createServer();
+
+            var concat = require('concat-stream');
+
+            server.on('connection', function(socket){
+                socket.setTimeout(400);
+            });
+
+            server.on('request', function(req, res){
+                req.pipe(process.stdout);
+                res.statusCode = 200;
+                res.end();
+                bot.close(function(){
+                    server.close(function(){ st.end(); });
+                });
+            });
+
+            server.listen(PORT+1, function(){
+                request({
+                    method: 'POST',
+                    uri: URL + '/webhooks/echo',
+                }, function(err, res, body){
+                    st.equal(res.statusCode, 200, "Should return a 200 status to messages it can respond to");
+                });
+            });
+        });
+    });
+
 });
