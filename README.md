@@ -4,7 +4,7 @@ widenbot
 > _A Slack bot and plugin framework for Widen_
 
 [![Build
-Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat)](https://travis-ci.org/Widen/widenbot) | [![Version](http://img.shields.io/npm/v/widenbot.svg?style=flat)](npm.org/widenbot) | [![Waffle.io](http://img.shields.io/badge/waffle-board-yellow.svg?style=flat)](https://waffle.io/Widen/widenbot)
+Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat)](https://travis-ci.org/Widen/widenbot) | [![Version](http://img.shields.io/npm/v/widenbot.svg?style=flat)](https://www.npmjs.org/package/widenbot) | [![Waffle.io](http://img.shields.io/badge/waffle-board-yellow.svg?style=flat)](https://waffle.io/Widen/widenbot)
 
 ----
 
@@ -201,7 +201,7 @@ var Echo = module.exports = {
 };
 ```
 
-# <a name="plugins">Plugins</a>
+# <a name="webhooks">Webhooks</a>
 
 Much like plugins, webhooks are POJOs defined in the configuration.
 
@@ -229,9 +229,9 @@ is hash containing:
 }
 ```
 
-## <a name="plugins-format">Format</a>
+## <a name="webhooks-format">Format</a>
 
-## <a name="plugins-example">Example</a>
+## <a name="webhooks-example">Example</a>
 
 
 # <a name="development">Development</a>
