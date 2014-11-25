@@ -33,3 +33,5 @@ node_modules
 db
 testdb
 log
+env.sh
+*.zip
