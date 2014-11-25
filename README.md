@@ -8,6 +8,7 @@ Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat
 
 ----
 
+- [Dockerstart](#dockerstart)
 - [Quickstart](#quickstart)
 - [Features](#features)
 - [Configuration](#config)
@@ -25,6 +26,17 @@ Status](http://img.shields.io/travis/Widen/widenbot.svg?branch=master&style=flat
 - [Development](#development)
     - [Creating Environment](#development-env)
     - [Contributing Guidelines](#development-contributing)
+
+
+# <a name="dockerstart">Dockerstart</a>
+
+```
+% docker build -t widen/widenbot .
+% docker run -it --rm --name widenbot widen/widenbot
+```
+
+(IMHO, this is the easiest way to get started, and mirrors the way in works
+in production).
 
 # <a name="quickstart">Quickstart</a>
 
