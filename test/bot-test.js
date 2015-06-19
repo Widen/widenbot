@@ -109,7 +109,6 @@ test('$Bot', function(t){
                 uri: URL + '/ping',
             }, function(err, res, body){
                 st.equal(res.statusCode, 200);
-                st.equal(body, '"pong"');
                 bot.close(function(){ st.end(); });
             });
         });
