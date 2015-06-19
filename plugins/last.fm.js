@@ -94,11 +94,10 @@ function register(brain, slack_username, lastfm_username)
 
 }
 
-function LastFm_track_getInfo(lastFm, trackid)
+function LastFm_track_getInfo(lastFm, track)
 {
     return new promise(function(resolve, reject){
-        lastFm.request('track.getInfo', {
-            'mbid': trackid,
+        var params = {
             handlers: {
                 success: function(data) {
                     resolve(data.track);
@@ -107,7 +106,16 @@ function LastFm_track_getInfo(lastFm, trackid)
                     reject(e);
                 }
             }
-        });
+        };
+
+        if (track.mbid) {
+            params.mbid = track.mbid;
+        } else {
+            params.track = track.name;
+            params.artist = track.artist['#text'];
+        }
+
+        return lastFm.request('track.getInfo', params);
     });
 }
 
@@ -134,15 +142,19 @@ function LastFm_getRecentTrack(lastFm, lastfm_username){
                         imgUrl = track.image[2]['#text']
                         ;
 
-                    LastFm_track_getInfo(lastFm, track.mbid).then(function(track){
-                        var tags = track.toptags;
+                    LastFm_track_getInfo(lastFm, track).then(function(trackInfo){
+                        var tags = trackInfo.toptags;
 
-                        tags = tags.tag.map(function(t){
-                            return {
-                                name: t.name,
-                                url: t.url
-                            };
-                        });
+                        if (tags.tag) {
+                            tags = tags.tag.map(function(t){
+                                return {
+                                    name: t.name,
+                                    url: t.url
+                                };
+                            });
+                        } else {
+                            tags = [];
+                        }
 
                         resolve({
                             album: {
@@ -178,8 +190,9 @@ function LastFm_getRecentTrack(lastFm, lastfm_username){
 function format_post(track)
 {
 
+    console.log(track);
     var
-        postTemplate = '[ *<%= name.name %>* ] _by_ [ *<%= artist.name %>* ] _on_ [ *<%= album.name %>* ] { _<%= tags.map(function(t){return t.name;}).join(", ") %>_ }- <%= imgUrl %>',
+        postTemplate = '[ *<%= name.name %>* ] _by_ [ *<%= artist.name %>* ] _on_ [ *<%= album.name %>* ] [ _<%= tags.map(function(t){return t.name;}).join(", ") %>_ ]- <%= imgUrl %>',
         post = _.template(postTemplate, track);
 
     return post;
