@@ -30,7 +30,7 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-db
+*.db
 testdb
 log
 env.sh
