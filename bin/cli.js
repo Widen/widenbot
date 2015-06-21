@@ -69,8 +69,12 @@ function main()
         process.exit(1);
     }
 
-    var configPath = path.resolve(process.cwd(), argv.config),
+    var config = {};
+
+    try {
+        var configPath = path.resolve(process.cwd(), argv.config);
         config = require(configPath);
+    } catch (exception) {}
 
     config.port = process.env.PORT || config.port || argv.port || 8000;
 

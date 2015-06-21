@@ -65,9 +65,9 @@ test('$Bot', function(t){
     t.test('#constructor', function(st){
         //st.plan(2);
 
-        st.throws(function(){
+        st.doesNotThrow(function(){
             new Bot();
-        }, undefined, "should throw when no parameters");
+        }, undefined, "should not throw when no parameters");
 
         st.doesNotThrow(function(){
             var bot, options;
