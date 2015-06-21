@@ -1,0 +1,6 @@
+node_modules
+db
+*.zip
+log/*
+scripts
+test
