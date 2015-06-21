@@ -89,8 +89,7 @@ Currently recognized fields are:
   (default: false)
 - `token`: Slack's outgoing webook token
 - `url`: Slack's incoming webhook url
-- `brain`: Options for the brain
-    - `dbpath`: Path for the database to exist at
+- `dbpath`: Path for the database to exist at
 - `logging`: Options for the logger
     - `path`: Path for the logs to be written to
     - `console` (optional): If true logs are written to console too
@@ -121,8 +120,7 @@ Each plugin is given a namespace within the brain to store and retrieve data.
 
 **Required options:**
 
-- `brain`: Options for the brain
-    - `dbpath`: Path for the database to exist at
+- `dbpath`: Path for the database to exist at
 
 ## <a name="config-plugins">Plugins</a>
 
