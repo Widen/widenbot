@@ -23,7 +23,6 @@ var help = module.exports = {
 
         if (ctx.args)
         {
-            console.log(ctx.args);
             return format_help(ctx.plugins[ctx.args]);
         }
         return _.map(ctx.plugins, function(plugin){
