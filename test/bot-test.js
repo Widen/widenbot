@@ -19,8 +19,7 @@ var MockOptions = function(opts)
         port: PORT,
         token: 'fooToken',
         url: HOOK_URL,
-        logging: { console: false, path: './log'},
-        brain: { dbpath: './testdb' }
+        dbpath: './testdb'
     };
 
     return _.extend(defaults, opts);

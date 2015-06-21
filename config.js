@@ -1,18 +1,4 @@
 module.exports = {
-    botname: 'widenbot',
-    icon: ':ghost:',
-
-    env: 'dev',
-    port: 8000,
-    token: process.env.SLACK_TOKEN,
-    url: process.env.SLACK_URL,
-    brain: {
-        dbpath: './db'
-    },
-    logging: {
-        console: true,
-        path: './log'
-    },
     plugins: {
         'help': {},
         'echo': {},
