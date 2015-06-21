@@ -11,10 +11,7 @@ module.exports = {
     },
     logging: {
         console: true,
-        path: './log',
-        logentries: {
-            token: process.env.LOGENTRIES_TOKEN
-        }
+        path: './log'
     },
     plugins: {
         'help': {},
