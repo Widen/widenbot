@@ -12,7 +12,7 @@ var TearDownDb = function(dbpath)
 var MockOptions = function(opts)
 {
     var defaults = {
-        dbpath: './testdb'
+        dbpath: './test.db'
     };
 
     return _.extend(defaults, opts);

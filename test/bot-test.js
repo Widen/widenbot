@@ -19,7 +19,7 @@ var MockOptions = function(opts)
         port: PORT,
         token: 'fooToken',
         url: HOOK_URL,
-        dbpath: './testdb'
+        dbpath: './test.db'
     };
 
     return _.extend(defaults, opts);
