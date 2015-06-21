@@ -14,7 +14,7 @@ var Widenbot = require('../index').Bot
 
 var DEV_MODE = false;
 
-function help()
+var help = function help()
 {
     console.log("usage: widenbot [OPTIONS]\n" +
 "\nOPTIONS:\n" +
@@ -27,7 +27,7 @@ function help()
 "\t\n");
 }
 
-function parse_args(args)
+var parse_args = function parse_args(args)
 {
     if (args && _.isObject(args))
     {
@@ -56,9 +56,9 @@ function parse_args(args)
     }
     return {};
 
-}
+};
 
-function main()
+var main = function main()
 {
     var args = process.argv ? process.argv.slice(2) : null,
         argv = parse_args(args);
@@ -80,7 +80,7 @@ function main()
 
     var widenbot = new Widenbot(config);
     widenbot.listen();
-
-}
+    return widenbot;
+};
 
 main();
