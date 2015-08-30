@@ -45,6 +45,7 @@
     "level": "^0.18.0",
     "lodash": "^2.4.1",
     "minimist": "^1.1.0",
+    "parent-require": "^1.0.0",
     "promise": "^6.0.0",
     "restify": "^2.8.2",
     "restify-namespace": "^0.1.0",
