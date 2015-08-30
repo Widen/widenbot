@@ -80,7 +80,7 @@ function register(brain, slack_username, lastfm_username)
             if (result)
             {
                 resolve("username ''" + result.lastfm_username +
-                        "' is now registered for '@" + result.slack_username + "'");
+                        "' is now registered for '@" + slack_username + "'");
             }
             else
             {
