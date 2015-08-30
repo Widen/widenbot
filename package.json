@@ -27,6 +27,7 @@
   },
   "scripts": {
     "start": "node ./bin/cli.js -c config.js",
+    "startDev": "node ./bin/cli.js -c config.js -e dev",
     "changelog": "node ./scripts/changelog.js",
     "watch": "NODE_ENV=dev nodemon -w index.js -w lib -w plugins -w webooks bin/cli.js -c config -p 8000",
     "lint": "jshint index.js lib/*.js plugins/*.js webhooks/*.js test/*.js bin/*.js",
