@@ -1,0 +1,20 @@
+{
+  "name": "widenbot-example",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "widenbot -c config.js"
+  },
+  "author": "Mark Feltner",
+  "license": "MIT",
+  "dependencies": {
+    "widenbot": "^4.0.0",
+    "widenbot-aws": "^1.0.0",
+    "widenbot-coolface": "^1.0.0",
+    "widenbot-flipit": "^1.0.0",
+    "widenbot-gif": "^1.0.0",
+    "widenbot-nowplaying": "^1.0.0"
+  }
+}
